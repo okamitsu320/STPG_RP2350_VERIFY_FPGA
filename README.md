@@ -7,7 +7,12 @@ do not require an FPGA.
 This repository contains one verification RTL with a 24-pin
 STPG interface plus board output-enable, oscillator and LED ports, the Cyclone
 10 LP Quartus project, self-checking host simulations and this manual.
-Original code is MIT.
+Original code is [MIT](LICENSE).
+
+![Conceptual STPG and FPGA signal directions and separate board controls](manual/images/verification-overview.svg)
+
+The diagram shows signal groups, not physical wiring or validated timing. See the
+[interface and board checklist](manual/interface.md) before connecting a board.
 
 ## Host-only simulation
 

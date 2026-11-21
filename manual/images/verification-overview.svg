@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="352" viewBox="0 0 900 352" role="img" aria-labelledby="title desc">
+  <title id="title">STPG and the verification DUT</title>
+  <desc id="desc">The STPG sends clock, reset, mode and control to the verification DUT. An eight-bit bus is shared; the DUT returns a seven-bit response. Separate board logic controls output enable and the LEDs. This is not a wiring diagram.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#245080"/>
+    </marker>
+  </defs>
+  <rect width="900" height="352" rx="16" fill="#f5f8fd"/>
+  <g fill="#172942" font-family="system-ui, sans-serif">
+    <text x="36" y="48" font-size="27" font-weight="700">STPG and the verification DUT</text>
+    <text x="36" y="76" font-size="15">Conceptual signal directions · not a wiring diagram</text>
+    <g fill="#ffffff" stroke="#7790ad" stroke-width="1.5">
+      <rect x="36" y="112" width="186" height="148" rx="12"/>
+      <rect x="678" y="112" width="186" height="148" rx="12"/>
+      <rect x="546" y="285" width="318" height="46" rx="9"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="129" y="178" font-size="24" font-weight="700">STPG</text>
+      <text x="129" y="205" font-size="15">Generator / comparator</text>
+      <text x="771" y="178" font-size="22" font-weight="700">FPGA DUT</text>
+      <text x="771" y="205" font-size="15">Synthetic digital target</text>
+      <text x="450" y="128" font-size="16" font-weight="600">clk · rst_n · mode[3:0] · ctrl[2:0]</text>
+      <text x="450" y="180" font-size="16" font-weight="600">io[7:0] · one driver at a time</text>
+      <text x="450" y="232" font-size="16" font-weight="600">dout[6:0] · response</text>
+      <text x="705" y="314" font-size="15">Board pins: oe_n · oscillator · status LEDs</text>
+    </g>
+    <g fill="none" stroke="#245080" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M232 140 H668"/>
+      <path d="M232 192 H668" marker-start="url(#arrow)"/>
+      <path d="M668 244 H232"/>
+    </g>
+    <path d="M771 260 V285" fill="none" stroke="#7790ad" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="36" y="314" font-size="15">24 interface pins. oe_n high masks DUT outputs in RTL.</text>
+  </g>
+</svg>
