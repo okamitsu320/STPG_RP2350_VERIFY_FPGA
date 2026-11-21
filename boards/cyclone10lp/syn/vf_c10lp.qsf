@@ -1,0 +1,112 @@
+# Quartus Settings File — vf_c10lp
+# Device: Intel Cyclone 10 LP  10CL006YE144C8G
+#
+# Board-specific pin mapping for the single shared RTL:
+#   clk=PIN_3    rst_n=PIN_7
+#   mode[0]=PIN_1  mode[1]=PIN_2  mode[2]=PIN_143  mode[3]=PIN_144
+#   ctrl[0]=PIN_141  ctrl[1]=PIN_142  ctrl[2]=PIN_137
+#   io[0]=PIN_138  io[1]=PIN_135  io[2]=PIN_136
+#   io[3]=PIN_132  io[4]=PIN_133
+#   io[5]=PIN_119  io[6]=PIN_115  io[7]=PIN_121
+#   dout[0]=PIN_120  dout[1]=PIN_125  dout[2]=PIN_124
+#   dout[3]=PIN_127  dout[4]=PIN_126  dout[5]=PIN_129  dout[6]=PIN_128
+#   clk_50m=PIN_91  oe_n=PIN_25
+#   led1=PIN_101  led2=PIN_100  led3=PIN_99
+
+set_global_assignment -name FAMILY "Cyclone 10 LP"
+set_global_assignment -name DEVICE 10CL006YE144C8G
+set_global_assignment -name TOP_LEVEL_ENTITY pattern_verify_dut_24pin_vf
+set_global_assignment -name VERILOG_FILE ../../../rtl/pattern_verify_dut_24pin_vf.v
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name SDC_FILE vf_c10lp.sdc
+
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+
+# clk, rst_n
+set_location_assignment PIN_3  -to clk
+set_location_assignment PIN_7  -to rst_n
+
+# mode[3:0]
+set_location_assignment PIN_1   -to {mode[0]}
+set_location_assignment PIN_2   -to {mode[1]}
+set_location_assignment PIN_143 -to {mode[2]}
+set_location_assignment PIN_144 -to {mode[3]}
+
+# ctrl[2:0]
+set_location_assignment PIN_141 -to {ctrl[0]}
+set_location_assignment PIN_142 -to {ctrl[1]}
+set_location_assignment PIN_137 -to {ctrl[2]}
+
+# io[7:0]
+set_location_assignment PIN_138 -to {io[0]}
+set_location_assignment PIN_135 -to {io[1]}
+set_location_assignment PIN_136 -to {io[2]}
+set_location_assignment PIN_132 -to {io[3]}
+set_location_assignment PIN_133 -to {io[4]}
+set_location_assignment PIN_119 -to {io[5]}
+set_location_assignment PIN_115 -to {io[6]}
+set_location_assignment PIN_121 -to {io[7]}
+
+# dout[6:0]
+set_location_assignment PIN_120 -to {dout[0]}
+set_location_assignment PIN_125 -to {dout[1]}
+set_location_assignment PIN_124 -to {dout[2]}
+set_location_assignment PIN_127 -to {dout[3]}
+set_location_assignment PIN_126 -to {dout[4]}
+set_location_assignment PIN_129 -to {dout[5]}
+set_location_assignment PIN_128 -to {dout[6]}
+
+# OE + board OSC + LEDs
+set_location_assignment PIN_91  -to clk_50m
+set_location_assignment PIN_25  -to oe_n
+set_location_assignment PIN_101 -to led1
+set_location_assignment PIN_100 -to led2
+set_location_assignment PIN_99  -to led3
+
+# I/O Standards (3.3-V LVCMOS)
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to rst_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {mode[0]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {mode[1]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {mode[2]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {mode[3]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {ctrl[0]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {ctrl[1]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {ctrl[2]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {io[0]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {io[1]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {io[2]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {io[3]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {io[4]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {io[5]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {io[6]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {io[7]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {dout[0]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {dout[1]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {dout[2]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {dout[3]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {dout[4]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {dout[5]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to {dout[6]}
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clk_50m
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to oe_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led1
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led2
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to led3
+
+# No pull-up on bidirectional io pins
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR OFF -to {io[0]}
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR OFF -to {io[1]}
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR OFF -to {io[2]}
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR OFF -to {io[3]}
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR OFF -to {io[4]}
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR OFF -to {io[5]}
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR OFF -to {io[6]}
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR OFF -to {io[7]}
+
+# Release ~ALTERA_nCEO~ (PIN_101) as user I/O after configuration
+# Without this, PIN_101 is reserved for the JTAG chain-enable output
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+
+set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"

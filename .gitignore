@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+build/
+*.vvp
+*.vcd
+*.log
+output_files/
+db/
+incremental_db/
